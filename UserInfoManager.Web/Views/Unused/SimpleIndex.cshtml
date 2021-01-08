@@ -1,0 +1,14 @@
+﻿@model IEnumerable<UserInfoManager.Data.Models.User>
+
+@{
+    ViewBag.Title = "SimpleIndex";
+}
+
+<h1><u><b>Users</b></u></h1>
+<h4>Simple View</h4>
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_UserSummary", item)
+}
+

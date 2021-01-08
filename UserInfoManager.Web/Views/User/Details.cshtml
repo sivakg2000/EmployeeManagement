@@ -1,0 +1,16 @@
+﻿@model UserInfoManager.Data.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1>&#128195; Details</h1>
+<h4>for user: @Model.Name @Model.Surname</h4>
+<p>
+    @Html.ActionLink(@Html.Raw(HttpUtility.HtmlDecode("&#128221;")) + " Edit ", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink(@Html.Raw(HttpUtility.HtmlDecode("&#128281;")) + " Back to List", "Index")
+</p>
+
+@Html.Partial("_UserDetails")
+
+

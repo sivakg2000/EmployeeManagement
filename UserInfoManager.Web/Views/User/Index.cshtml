@@ -1,0 +1,113 @@
+﻿@model IEnumerable<UserInfoManager.Data.Models.User>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h1><b>&#128101; Users</b></h1>
+
+@using (Html.BeginForm())
+{
+    <table  class="table table-bordered table-condensed">
+        <tr>
+            <td class="text-center">
+                <i>Using BT3 view</i>
+            </td>
+            <td class="text-right">
+                @Html.AntiForgeryToken()
+                Find by name: @Html.TextBox("searchString")
+                <input type="submit" value="Search" />
+            </td>
+        </tr>
+    </table>
+
+}
+
+<table class="table table-striped table-responsive table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.ActionLink("" + Html.DisplayNameFor(model => model.Id), "Index", new { sortOrder = ViewBag.IdSortParam })
+            </th>
+            <th>
+                @Html.ActionLink("" + Html.DisplayNameFor(model => model.Name), "Index", new { sortOrder = ViewBag.NameSortParam })
+            </th>
+            <th>
+                @Html.ActionLink("" + Html.DisplayNameFor(model => model.Surname), "Index", new { sortOrder = ViewBag.SurnameSortParam })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneHome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneMobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.ActionLink("" + Html.DisplayNameFor(model => model.Occupation), "Index", new { sortOrder = ViewBag.OccupationSortParam })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Afm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxOfficeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.ActionLink("Add user " + @Html.Raw(HttpUtility.HtmlDecode("&#128229;")), "Create", "User")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneHome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneMobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Occupation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Afm)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaxOfficeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.ActionLink("" + @Html.Raw(HttpUtility.HtmlDecode("&#128221;")), "Edit", new { id = item.Id })
+                    @Html.ActionLink("" + @Html.Raw(HttpUtility.HtmlDecode("&#128220;")), "Details", new { id = item.Id })
+                    @Html.ActionLink("" + @Html.Raw(HttpUtility.HtmlDecode("&#10060;")), "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - User Info Manager</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    @{
+        Html.RenderPartial("_HeaderNavBar");
+    }
+
+    <div class="container body-content">
+
+        @{
+            if (TempData["Message"] != null)
+            {
+                <div id="MessageBox" class=" alert alert-dismissible alert-info alert-dismissable">
+                    <h3>@TempData["Message"]</h3>
+                </div>
+            }
+        }
+
+        @RenderBody()
+
+        @{
+            Html.RenderPartial("_Footer");
+        }
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#MessageBox").fadeOut(1000);
+        }, 3000);
+    });
+</script>

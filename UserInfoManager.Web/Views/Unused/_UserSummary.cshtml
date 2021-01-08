@@ -1,0 +1,12 @@
+﻿@model UserInfoManager.Data.Models.User
+
+    <div class="panel-default">
+        <div class="panel-heading">
+            <h1 class="panel-title"><b>@Model.Name @Model.Surname  </b>|  @Model.PhoneMobile  |  [ ID: @Model.Id]</h1>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+        </div>
+    </div>

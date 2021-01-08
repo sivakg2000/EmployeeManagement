@@ -1,0 +1,80 @@
+﻿@model IEnumerable<UserInfoManager.Data.Models.User>
+
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<h1><b>&#128101; Users</b></h1>
+
+<table class="table table-bordered table-condensed text-center">
+    <tr>
+        <td class="text-left">
+            <i>Using JQ DataTable view</i>
+        </td>
+        <td >
+            lol
+        </td>
+    </tr>
+</table>
+
+
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Country</th>
+            <th>PhoneHome</th>
+            <th>PhoneMobile</th>
+            <th>CompanyName</th>
+            <th>Occupation</th>
+            <th>Afm</th>
+            <th>TaxOffice</th>
+            <th>Address</th>
+            <th>
+                @Html.ActionLink("" + @Html.Raw(HttpUtility.HtmlDecode("&#128229;")), "Create", "Home")
+            </th>
+        </tr>
+    </thead>
+
+</table>
+
+<link href="/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+
+@section Scripts{
+    <script type="text/javascript" charset="utf8" src="/Scripts/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myTable").DataTable({
+                "ajax": {
+                    "url": "/JQ/LoadData",
+                    "type": "Get",
+                    "dataType": "Json",
+                    "dataSrc": "d"        @* SUCH AN IMPORTANT LINE OMG *@
+                },
+                "columns": [
+                    { "data": "Id" },
+                    { "data": "Name" },
+                    { "data": "Surname" },
+                    { "data": "Country" },
+                    { "data": "PhoneHome" },
+                    { "data": "PhoneMobile" },
+                    { "data": "CompanyName" },
+                    { "data": "Occupation" },
+                    { "data": "Afm" },
+                    { "data": "TaxOfficeId" },
+                    { "data": "Address" }
+                ]
+            });
+        });
+    </script>
+}
+
+
+
+@*//"error": function () {
+     //    output.html('<h1 class="error">
+    There was an error loading the data.</h2>');
+    //}*@

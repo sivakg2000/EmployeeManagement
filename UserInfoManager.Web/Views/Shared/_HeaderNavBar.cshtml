@@ -1,0 +1,31 @@
+﻿<!-- @@model UserInfoManager.Data.Models.User -->
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("User Information Manager " + @Html.Raw(HttpUtility.HtmlDecode("&#128100;")), "Index", "User", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink(@Html.Raw(HttpUtility.HtmlDecode("&#128229;")) + " Add User", "Create", "Home")</li>*@
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">&#127912; Users<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink(@Html.Raw(HttpUtility.HtmlDecode("&#128210;")) + " BT4 View", "Index", "User")</li>
+                            <li>@Html.ActionLink(@Html.Raw(HttpUtility.HtmlDecode("&#128216;")) + " JQ View", "Index", "JQ")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">&#128190; Data<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink(@Html.Raw(HttpUtility.HtmlDecode("&#127970;")) + " Tax Offices", "Index", "TaxOffice")</li>
+                        </ul>
+                    </li>
+            </div>
+        </div>
+    </div>
