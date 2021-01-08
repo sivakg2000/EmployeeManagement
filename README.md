@@ -1,0 +1,1 @@
+# Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r For issues with the compiler 
